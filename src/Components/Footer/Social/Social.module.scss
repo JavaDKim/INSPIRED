@@ -1,0 +1,44 @@
+.social {
+  grid-area: social;
+  justify-self: center;
+
+  &Title {
+    margin-bottom: 16px;
+
+    @media (max-width: 540px) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &Subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &List {
+    display: flex;
+    gap: 10px;
+  }
+	&LinkFB{
+		fill: #000000;
+		cursor: pointer;
+	}
+	&LinkVK{
+		fill: #000000;
+		cursor: pointer;
+	}
+	&LinkFB:hover {
+    fill: #3b5998;
+  }
+
+  &LinkVK:hover {
+    fill: #0077ff;
+  }
+}
