@@ -6,7 +6,7 @@ export const Top = () => (
   <div className={s.top}>
     <Container className={cn(Container, s.container)}>
       <a className={cn(s.link, s.phone)} href="tel:+79034034031">
-        +7 (903) 403 40 31
+        +7 (903) 490 26 20
       </a>
       <a href="/" className={s.logo}>
         <img src={logo} alt="Логотип Inspired" />

@@ -1,1 +1,1 @@
-export const Category = () => <div>Category</div>;
+export const Category = () => <div> Category</div>;
