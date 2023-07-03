@@ -8,7 +8,9 @@ export const Footer = () => (
       <p className={cn(s.title, s.categoryTitle)}>КАТАЛОГ</p>
       <ul className={s.categoryList}>
         <li>
-          <p className={s.categorySubtitle}>Женщины</p>
+          <p className={s.categorySubtitle}>
+            <a className={s.link}>Женщины</a>
+          </p>
           <ul className={s.categorySublist}>
             <li>
               <a className={s.link}>Бюсгалтеры</a>
@@ -31,7 +33,9 @@ export const Footer = () => (
           </ul>
         </li>
         <li>
-          <p className={s.categorySubtitle}>Мужчины</p>
+          <p className={s.categorySubtitle}>
+            <a className={s.link}>Мужчины</a>
+          </p>
           <ul className={s.categorySublist}>
             <li>
               <a className={s.link}>Трусы</a>
