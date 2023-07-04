@@ -26,19 +26,12 @@
     display: flex;
     gap: 10px;
   }
-	&LinkFB{
-		fill: #000000;
-		cursor: pointer;
-	}
-	&LinkVK{
-		fill: #000000;
-		cursor: pointer;
-	}
+	
 	&LinkFB:hover {
-    fill: #3b5998;
+    color: #3b5998;
   }
 
   &LinkVK:hover {
-    fill: #0077ff;
+    color: #0077ff;
   }
 }

@@ -1,54 +1,30 @@
 import s from "./Category.module.scss";
 import sc from "../Footer.module.scss";
+import cn from "classnames";
+import { NavLink } from "react-router-dom";
 
-export const Category = () => (
+export const Category = ({ list }) => (
   <div className={s.category}>
-    <h2 className={s.categoryTitle}>КАТАЛОГ</h2>
+    <h2 className={cn(sc.title, s.categoryTitle)}>КАТАЛОГ</h2>
     <ul className={s.categoryList}>
-      <li>
-        <h3 className={s.categorySubtitle}>
-          <a className={sc.link}>Женщины</a>
-        </h3>
-        <ul className={s.categorySublist}>
-          <li>
-            <a className={sc.link}>Бюсгалтеры</a>
-          </li>
-          <li>
-            <a className={sc.link}>Трусы</a>
-          </li>
-          <li>
-            <a className={sc.link}>Носки</a>
-          </li>
-          <li>
-            <a className={sc.link}>Халаты</a>
-          </li>
-          <li>
-            <a className={sc.link}>Термобелье</a>
-          </li>
-          <li>
-            <a className={sc.link}>Пижамы</a>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <h3 className={s.categorySubtitle}>
-          <a className={sc.link}>Мужчины</a>
-        </h3>
-        <ul className={s.categorySublist}>
-          <li>
-            <a className={sc.link}>Трусы</a>
-          </li>
-          <li>
-            <a className={sc.link}>Носки</a>
-          </li>
-          <li>
-            <a className={sc.link}>Халаты</a>
-          </li>
-          <li>
-            <a className={sc.link}>Термобелье</a>
-          </li>
-        </ul>
-      </li>
+      {list.map((e) => (
+        <li className={s.categorySublist} key={e.link}>
+          <h3 className={s.categorySubtitle}>
+            <NavLink className={sc.link} to={e.link}>
+              {e.title}
+            </NavLink>
+          </h3>
+          <ul className={s.categorySublist}>
+            {e.categories.map((el) => (
+              <li key={el.link}>
+                <NavLink className={sc.link} to={`${e.link}/${el.link}`}>
+                  {el.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))}
     </ul>
   </div>
 );

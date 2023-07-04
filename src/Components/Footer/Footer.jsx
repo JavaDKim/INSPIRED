@@ -7,14 +7,16 @@ import { Development } from "./Development/Development";
 import s from "./Footer.module.scss";
 import cn from "classnames";
 
-export const Footer = () => (
+export const Footer = ({ list }) => (
   <footer>
-    <Container className={cn(Container, s.container)}>
-      <Category />
-      <Social />
-      <Contacts />
-      <CopyRight />
-      <Development />
+    <Container>
+      <div className={s.container}>
+        <Category list={list} />
+        <Social />
+        <Contacts />
+        <CopyRight />
+        <Development />
+      </div>
     </Container>
   </footer>
 );
