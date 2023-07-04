@@ -3,16 +3,12 @@ import sc from "../Footer.module.scss";
 
 export const Category = () => (
   <div className={s.category}>
-    <p className={s.categoryTitle}>
-      <h2>КАТАЛОГ</h2>
-    </p>
+    <h2 className={s.categoryTitle}>КАТАЛОГ</h2>
     <ul className={s.categoryList}>
       <li>
-        <p className={s.categorySubtitle}>
-          <a className={sc.link}>
-            <h3>Женщины</h3>
-          </a>
-        </p>
+        <h3 className={s.categorySubtitle}>
+          <a className={sc.link}>Женщины</a>
+        </h3>
         <ul className={s.categorySublist}>
           <li>
             <a className={sc.link}>Бюсгалтеры</a>
@@ -35,11 +31,9 @@ export const Category = () => (
         </ul>
       </li>
       <li>
-        <p className={s.categorySubtitle}>
-          <a className={sc.link}>
-            <h3>Мужчины</h3>
-          </a>
-        </p>
+        <h3 className={s.categorySubtitle}>
+          <a className={sc.link}>Мужчины</a>
+        </h3>
         <ul className={s.categorySublist}>
           <li>
             <a className={sc.link}>Трусы</a>

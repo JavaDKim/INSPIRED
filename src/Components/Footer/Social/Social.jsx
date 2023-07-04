@@ -1,9 +1,7 @@
 import s from "./Social.module.scss";
 export const Social = () => (
   <div className={s.social}>
-    <p className={s.socialTitle}>
-      <h2>СВЯЗАТЬСЯ С НАМИ</h2>
-    </p>
+    <h2 className={s.socialTitle}>СВЯЗАТЬСЯ С НАМИ</h2>
     <p className={s.socialSubtitle}>Контакты и адреса магазинов</p>
     <ul className={s.socialList}>
       <li>
