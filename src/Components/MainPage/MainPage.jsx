@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 export const MainPage = ({ gender = "women" }) => {
   const { category } = useParams();
-  const { colorsList } = useSelector((state) => state.navigation);
+  const { colorsList } = useSelector((state) => state.colors);
   return (
     <Container>
       <div style={{ marginBottom: "15px" }}>

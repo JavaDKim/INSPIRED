@@ -10,11 +10,6 @@ export const fetchNavigation = createAsyncThunk(
   }
 );
 
-export const fetchColors = createAsyncThunk("colors/fetchColors", async () => {
-  const response = await fetch(COLORS_URL);
-  const data = await response.json();
-  return data;
-});
 const navigationSlice = createSlice({
   name: "navigation",
   initialState: {
@@ -24,7 +19,6 @@ const navigationSlice = createSlice({
     genderList: [],
     categoryList: [],
     error: null,
-    colorsList: [],
   },
 
   reducers: {
@@ -46,10 +40,6 @@ const navigationSlice = createSlice({
       .addCase(fetchNavigation.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
-      })
-      .addCase(fetchColors.fulfilled, (state, action) => {
-        state.status = "success";
-        state.colorsList = action.payload;
       });
   },
 });
