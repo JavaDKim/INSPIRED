@@ -9,7 +9,7 @@ import { setActiveGender } from "../../../features/navigationSlice";
 export const Navigation = ({ list }) => {
   const dispatch = useDispatch();
   const locate = useLocation();
-  const gender = locate.pathname.slice(1).split("/", 1).join() || woman;
+  const gender = locate.pathname.slice(1).split("/", 1).join() || "women";
   useEffect(() => {
     dispatch(setActiveGender(gender));
   }, [dispatch, gender]);

@@ -4,7 +4,7 @@ import { Header } from "../Components/Header/Header";
 import { Main } from "../Components/Layout/Main/Main";
 const list = [
   {
-    link: "woman",
+    link: "women",
     title: "Женщины",
     categories: [
       { link: "bras", title: "Бюстгалтеры" },
@@ -16,7 +16,7 @@ const list = [
     ],
   },
   {
-    link: "man",
+    link: "men",
     title: "Мужчины",
     categories: [
       { link: "panties/", title: "Трусы" },
