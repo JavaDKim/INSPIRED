@@ -10,7 +10,9 @@ export const fetchColors = createAsyncThunk("colors/fetchColors", async () => {
 const colorSlice = createSlice({
   name: "colorSlice",
   initialState: {
+    status: "",
     colorsList: [],
+    error: null,
   },
   reducers: {},
   extraReducers: (builder) => {
