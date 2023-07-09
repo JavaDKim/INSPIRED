@@ -14,13 +14,13 @@ const Banner = ({ data }) => {
 
   useEffect(() => {
     if (isMobile) {
-      setImg(data.bg.mobile);
+      setImg(data?.bg.mobile);
     } else if (isTablet) {
-      setImg(data.bg.tablet);
+      setImg(data?.bg.tablet);
     } else if (isLaptop) {
-      setImg(data.bg.laptop);
+      setImg(data?.bg.laptop);
     } else {
-      setImg(data.bg.desktop);
+      setImg(data?.bg.desktop);
     }
   }, [isMobile, isTablet, isLaptop, gender]);
 
