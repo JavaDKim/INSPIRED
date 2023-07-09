@@ -8,9 +8,7 @@ export const Gender = () => {
   //как у автора курса нужно для понимания как работает isActive
   // мною он был размещен в компоненте Navigation/Category
   //  const gender = useLocation().pathname.split("/")[1] || "woman";
-
   const { categoryList } = useSelector((state) => state.navigation);
-
   return (
     <ul className={s.gender}>
       {categoryList?.map((e, i) => (
@@ -22,7 +20,7 @@ export const Gender = () => {
                 isActive /*(isActive || gender === e.link)*/ && s.linkActive
               )
             }
-            to={e[0]}
+            to={`catalog/${e[0]}`}
           >
             {e[1].title}
           </NavLink>

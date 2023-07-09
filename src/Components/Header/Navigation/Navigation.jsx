@@ -3,21 +3,20 @@ import { Gender } from "./Gender/Gender";
 import { Category } from "./Category/Category";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { setActiveGender } from "../../../features/navigationSlice";
 
-export const Navigation = ({ list }) => {
+export const Navigation = () => {
   const dispatch = useDispatch();
-  const locate = useLocation();
-  const gender = locate.pathname.slice(1).split("/", 1).join() || "women";
+  const { gender } = useParams();
   useEffect(() => {
     dispatch(setActiveGender(gender));
   }, [dispatch, gender]);
   return (
     <nav>
       <Container>
-        <Gender list={list} />
-        <Category list={list} />
+        <Gender />
+        <Category />
       </Container>
     </nav>
   );

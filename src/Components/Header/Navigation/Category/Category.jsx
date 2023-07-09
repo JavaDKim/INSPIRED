@@ -1,7 +1,8 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import s from "./Category.module.scss";
 import cn from "classnames";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export const Category = () => {
   const { activeGender: gender, categoryList } = useSelector(
@@ -19,7 +20,7 @@ export const Category = () => {
                   className={({ isActive }) =>
                     cn(s.link, isActive && s.linkActive)
                   }
-                  to={`${e[0]}/${el.slug}`}
+                  to={`catalog/${e[0]}/${el.slug}`}
                 >
                   {el.title}
                 </NavLink>

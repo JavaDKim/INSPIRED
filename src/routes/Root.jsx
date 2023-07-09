@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "../Components/Footer/Footer";
 import { Header } from "../Components/Header/Header";
 import { Main } from "../Components/Layout/Main/Main";
-const list = [
+/* const list = [
   {
     link: "women",
     title: "Женщины",
@@ -25,15 +25,15 @@ const list = [
       { link: "thermal/", title: "Термобелье" },
     ],
   },
-];
+]; */
 export const Root = () => {
   return (
     <>
-      <Header list={list} />
+      <Header />
       <Main>
         <Outlet />
       </Main>
-      <Footer list={list} />
+      <Footer />
     </>
   );
 };

@@ -13,14 +13,17 @@ export const Category = () => {
         {categoryList?.map((e, i) => (
           <li className={s.categorySublist} key={i}>
             <h3 className={s.categorySubtitle}>
-              <NavLink className={sc.link} to={e[0]}>
+              <NavLink className={sc.link} to={`catalog/${e[0]}`}>
                 {e[1].title}
               </NavLink>
             </h3>
             <ul className={s.categorySublist}>
               {e[1].list?.map((el, i) => (
                 <li key={i}>
-                  <NavLink className={sc.link} to={`${e[0]}/${el.slug}`}>
+                  <NavLink
+                    className={sc.link}
+                    to={`catalog/${e[0]}/${el.slug}`}
+                  >
                     {el.title}
                   </NavLink>
                 </li>

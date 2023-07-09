@@ -1,39 +1,39 @@
-import { useLocation, useParams } from "react-router-dom";
-import s from "./MainPage.module.scss";
-import { Container } from "../Layout/Container/Container";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchGoods } from "../../features/goodsSlice";
-import Product from "../Product/Product";
+import { fetchCategory, fetchGender } from "../../features/goodsSlice";
+import { setActiveGender } from "../../features/navigationSlice";
+import Goods from "../Goods/Goods";
+import Banner from "../Banner/Banner";
 
-export const MainPage = ({ gender = "women" }) => {
-  const { category } = useParams();
-
-  const { goodsList } = useSelector((state) => state.goods);
+export const MainPage = () => {
   const dispatch = useDispatch();
-  const locate = useLocation();
-  const categoryPath = locate.pathname.slice(1).split("/");
-  console.log("categoryPath: ", categoryPath);
+  const { gender, category } = useParams();
+  const { categories } = useSelector((state) => state.navigation);
+  const genderData = categories[gender];
 
+  /*   console.log("categories: ", categories); */
   useEffect(() => {
-    dispatch(fetchGoods(gender));
-  }, [dispatch, gender]);
+    if (gender && category) {
+      dispatch(fetchCategory({ gender, category }));
+      return () => {
+        // будет вызываться когда жлемент MainPage демонтируется
+      };
+    }
+    if (gender) {
+      dispatch(fetchGender(gender));
+      return () => {
+        // будет вызываться когда жлемент MainPage демонтируется
+      };
+    }
+  }, [dispatch, category, gender]);
 
   return (
-    <section>
-      <Container>
-        <h2 className={s.title}>Новинки</h2>
-        <ul className={s.list}>
-          {(categoryPath.length === 1
-            ? goodsList
-            : goodsList.filter((item) => item.category === categoryPath[1])
-          ).map((e, i) => (
-            <li key={i}>
-              <Product {...e} />
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </section>
+    <>
+      <Banner data={genderData?.banner} />
+      <Goods
+        categoryData={categories[gender]?.list.find((e) => e.slug === category)}
+      />
+    </>
   );
 };

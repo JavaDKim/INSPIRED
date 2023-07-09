@@ -16,13 +16,9 @@ import { fetchColors } from "./features/colorSlice";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Navigate to="/women" />} />
-      <Route path="women" element={<MainPage gender="women" />} />
-      <Route path="men" element={<MainPage gender="men" />} />
-      <Route path="kids" element={<MainPage gender="kids" />} />
-      <Route path="women/:category" element={<MainPage gender="women" />} />
-      <Route path="men/:category" element={<MainPage gender="men" />} />
-      <Route path="kids/:category" element={<MainPage gender="kids" />} />
+      <Route index element={<Navigate to="/catalog/women" />} />
+      <Route path="catalog" element={<Navigate to="/catalog/women" />} />
+      <Route path="catalog/:gender/:category?" element={<MainPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
