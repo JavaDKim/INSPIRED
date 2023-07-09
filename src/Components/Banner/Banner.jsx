@@ -9,7 +9,7 @@ const Banner = ({ data }) => {
   const isMobile = useMedia("(max-width: 540px)");
   const isTablet = useMedia("(max-width: 768px)");
   const isLaptop = useMedia("(max-width: 1024px)");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState();
   const { gender, category } = useParams();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Banner = ({ data }) => {
     } else {
       setImg(data?.bg.desktop);
     }
-  }, [isMobile, isTablet, isLaptop, gender]);
+  }, [isMobile, isTablet, isLaptop, gender, []]);
 
   return (
     data?.id &&
