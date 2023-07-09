@@ -34,7 +34,7 @@ const Banner = ({ data }) => {
         <Container>
           <div className={s.content}>
             <h2 className={s.title}> {data.description}</h2>
-            <NavLink className={s.link} to={`/product/${data.id}`}>
+            <NavLink className={s.link} to={`/product/${data?.id}`}>
               Перейти
             </NavLink>
           </div>
