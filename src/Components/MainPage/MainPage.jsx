@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchCategory, fetchGender } from "../../features/goodsSlice";
-import { setActiveGender } from "../../features/navigationSlice";
 import Goods from "../Goods/Goods";
 import Banner from "../Banner/Banner";
 

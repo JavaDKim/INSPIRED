@@ -12,6 +12,17 @@ export const fetchGender = createAsyncThunk(
     return data;
   }
 );
+export const fetchRandomGoods = createAsyncThunk(
+  "goods/fetchRandomGoods",
+  async (param) => {
+    const response = await fetch(
+      `${GOODS_URL}?count=${param.count}&gender=${param.gender}`
+    );
+    const data = await response.json();
+    return data;
+  }
+);
+
 export const fetchCategory = createAsyncThunk(
   "goods/fetchCategory",
   async (param) => {
@@ -30,6 +41,7 @@ const goodsSlice = createSlice({
   initialState: {
     status: "",
     goodsList: [],
+    goodsRandomList: [],
     error: null,
     page: 0,
     pages: 0,
@@ -37,6 +49,17 @@ const goodsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchRandomGoods.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchRandomGoods.fulfilled, (state, action) => {
+        state.status = "success";
+        state.goodsRandomList = action.payload;
+      })
+      .addCase(fetchRandomGoods.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
       .addCase(fetchGender.pending, (state) => {
         state.status = "loading";
       })
