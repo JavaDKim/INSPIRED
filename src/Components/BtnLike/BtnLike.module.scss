@@ -1,0 +1,24 @@
+.like{
+	color: transparent;
+	transition: color 0.2s ease-in-out;
+  flex-grow: 1;
+&:hover{
+	color: tomato;
+}
+}
+.active{
+	color: crimson;
+}
+.likeFill{
+	color: crimson;
+	.stroke{
+		--stroke-width: 1px;
+	}	
+}
+.stroke{
+	--stroke-width: 2px;
+	&:hover{
+		--stroke-width: 1px;
+		color: tomato;
+	}	
+}

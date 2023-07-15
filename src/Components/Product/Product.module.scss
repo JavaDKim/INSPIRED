@@ -58,3 +58,11 @@
     line-height: 15px;
   }
 }
+
+.like{
+	color: transparent;
+	&:hover{
+		color:crimson;
+
+	}
+}

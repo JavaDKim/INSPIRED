@@ -190,3 +190,9 @@
     margin-right: 8px;
   }
 }
+.like{
+	color: transparent;
+	&:hover{
+		color:crimson;
+	}
+}
