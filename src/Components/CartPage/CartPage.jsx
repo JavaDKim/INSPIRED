@@ -1,7 +1,14 @@
 import React from "react";
+import Cart from "./Cart/Cart";
+import Order from "./Order/Order";
 
 const CartPage = () => {
-  return <div>CartPage</div>;
+  return (
+    <>
+      <Cart />
+      <Order />
+    </>
+  );
 };
 
 export default CartPage;

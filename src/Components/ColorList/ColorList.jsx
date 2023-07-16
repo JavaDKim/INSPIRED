@@ -9,6 +9,7 @@ const ColorList = ({ colors, selectedColor, handleColorChange }) => {
     <div className={s.colorList}>
       {colors?.map((id, i) => {
         const color = colorsList?.find((x) => id === x.id);
+
         return (
           <ColorLabel
             key={id}

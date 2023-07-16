@@ -7,16 +7,17 @@ import { useParams } from "react-router-dom";
 import { API_URL } from "../../const";
 import { fetchProduct } from "../../features/productSlice";
 import ColorList from "../ColorList/ColorList";
-import { ReactComponent as Like } from "../../assets/images/heartMenu.svg";
 import Count from "../Count/Count";
 import ProductSize from "../ProductSize/ProductSize";
 import RandomGoods from "../RandomGoods/RandomGoods";
 import { BtnLike } from "../BtnLike/BtnLike";
+import { addToCart } from "../../features/cartSlice";
 
 const ProductPage = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { product } = useSelector((state) => state.product);
+  const { colorsList } = useSelector((state) => state.colors);
   const [selectedColor, setSelectedColor] = useState("");
   const [count, setCount] = useState(1);
   const [selectedSize, setSelectedsize] = useState("");
@@ -37,6 +38,14 @@ const ProductPage = () => {
   const handleColorChange = (e) => {
     setSelectedColor(e.target.value);
   };
+  useEffect(() => {
+    if (colorsList.length && product.colors.length) {
+      const firstColor = colorsList.find(
+        (color) => color.id === product.colors[0]
+      ).title;
+      setSelectedColor(firstColor);
+    }
+  }, [colorsList, product.colors]);
 
   useEffect(() => {
     if (id) {
@@ -59,7 +68,20 @@ const ProductPage = () => {
                 alt={`${product?.title} ${product?.description}`}
               />
             )}
-            <form className={s.content}>
+            <form
+              className={s.content}
+              onSubmit={(e) => {
+                e.preventDefault();
+                dispatch(
+                  addToCart({
+                    id,
+                    color: selectedColor,
+                    size: selectedSize,
+                    count,
+                  })
+                );
+              }}
+            >
               <h2 className={s.title}>{product?.title}</h2>
               <p className={s.price}>руб {product?.price}</p>
               <div className={s.vendorCode}>

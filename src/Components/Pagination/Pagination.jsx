@@ -2,7 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import s from "./Pagintaion.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import cn from "classnames";
-import { setPage } from "../features/goodsSlice";
+import { setPage } from "../../features/goodsSlice";
 
 export const Pagination = () => {
   const pathname = useLocation().pathname;
